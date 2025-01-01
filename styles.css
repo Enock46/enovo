@@ -1,24 +1,114 @@
-body {
-    font-family: Arial, sans-serif;
+/* General reset and box-sizing */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and overall layout */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
     background-color: #f4f4f4;
+    color: #333;
 }
-header {
+
+/* Container for header content */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
     background-color: #333;
     color: white;
-    padding: 10px;
+}
+
+/* Header and profile image */
+header h1 {
+    font-size: 2.5em;
+}
+
+.profile-img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* About section */
+.about {
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 20px;
     text-align: center;
 }
-section {
-    margin: 20px;
+
+.about p {
+    font-size: 1.2em;
+    margin-top: 10px;
 }
+
+/* Projects section */
+.projects {
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 20px;
+}
+
+.projects h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Each individual project */
+.project {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.project img {
+    width: 150px;
+    height: 150px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.project-details h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.project-details p {
+    font-size: 1.1em;
+    color: #666;
+    margin: 10px 0;
+}
+
+.project-details a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-details a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
-    text-align: center;
     background-color: #333;
     color: white;
+    text-align: center;
     padding: 10px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #ff7b7b;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
