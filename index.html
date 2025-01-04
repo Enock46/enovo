@@ -4,95 +4,158 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 </head>
-<body>
-    <header>
-        <div class="header-content">
-            <h1>Welcome to My Portfolio</h1>
-            <div class="profile-info">
-                <img src="./images/my_image.jpg" alt="Your Photo" class="profile-img">
+<body class="bg-gray-50 text-gray-800 scroll-smooth">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="bg-green-600 text-white py-4 fixed top-0 w-full z-10 shadow-md">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-2xl font-bold">Enock's Portfolio</a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-gray-200">About</a></li>
+                <li><a href="#projects" class="hover:text-gray-200">Projects</a></li>
+                <li><a href="#skills" class="hover:text-gray-200">Skills</a></li>
+                <li><a href="#contact" class="hover:text-gray-200">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="bg-green-600 text-white py-20">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl font-bold mb-6">Welcome to My Portfolio</h1>
+            <div class="flex justify-center items-center mb-6">
+                <img src="./images/my_image.jpg" alt="Your Photo" class="w-40 h-40 rounded-full border-4 border-green-400 shadow-lg">
             </div>
-            <div class="profile-details">
-                <h3>Enock Luhimbo</h3>
-                <p>Mobile App Developer | AI/ML Enthusiast | Cybersecurity Professional</p>
+            <div>
+                <h3 class="text-2xl font-semibold">Enock Luhimbo</h3>
+                <p class="text-lg mt-2">Mobile App Developer | AI/ML Enthusiast | Cybersecurity Professional</p>
             </div>
         </div>
     </header>
 
-    <section class="about">
-        <h2>About Me</h2>
-        <p>Hi! I'm Enock, a passionate developer with experience in web development, AI, and cybersecurity. This portfolio showcases my work and projects.</p>
+    <!-- About Section -->
+    <section id="about" class="text-center py-16">
+        <h2 class="text-3xl font-semibold text-green-600 mb-4">About Me</h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">Hi! I'm Enock, a passionate developer with experience in web development, AI, and cybersecurity. This portfolio showcases my work and projects.</p>
     </section>
 
-    <section class="projects">
-        <h2>Projects</h2>
-        
-        <div class="project">
-            <img src="./images/password_checker.jpg" alt="password checker Image">
-            <div class="project-details">
-                <h3>Password Strength & Common Checker tool </h3>
-                <p>Password Strength Checker A web-based application to evaluate password strength using multiple checks,
-                     including custom criteria, a wordlist, zxcvbn analysis, and the "Have I Been Pwned" API
-                     .</p>
-                <a href="https://github.com/Enock46/Password-Strength-and-Common-Checker" target="_blank">View on GitHub</a>
+    <!-- Projects Section -->
+    <section id="projects" class="bg-gray-100 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-green-600 mb-10">Projects</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                    <img src="./images/password_checker.jpg" alt="password checker" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-600 mb-2">Password Strength & Common Checker Tool</h3>
+                        <p class="text-gray-600 mb-4">A web-based application to evaluate password strength using multiple checks...</p>
+                        <button onclick="openModal('project-1')" class="text-green-600 hover:underline">View Details</button>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                    <img src="./images/port_scanner.jpg" alt="port scanner" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-600 mb-2">Simple Port Scanner Tool</h3>
+                        <p class="text-gray-600 mb-4">A port scanner tool that checks if specific ports are open or closed...</p>
+                        <button onclick="openModal('project-2')" class="text-green-600 hover:underline">View Details</button>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                    <img src="./images/ipmasking.jpg" alt="IP Masking tool" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-600 mb-2">IP Masking Simulation Tool</h3>
+                        <p class="text-gray-600 mb-4">A simple web-based tool to simulate IP masking using a proxy...</p>
+                        <button onclick="openModal('project-3')" class="text-green-600 hover:underline">View Details</button>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300">
+                    <img src="./images/brute_force.jpg" alt="SSH Brute Force Detection Tool" class="w-full h-48 object-cover" loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-green-600 mb-2">SSH Brute Force Detection Tool</h3>
+                        <p class="text-gray-600 mb-4">A web application that helps administrators monitor SSH brute force attacks...</p>
+                        <button onclick="openModal('project-4')" class="text-green-600 hover:underline">View Details</button>
+                    </div>
+                </div>
             </div>
         </div>
-
-        <div class="project">
-            <img src="./images/port_scanner.jpg" alt="port scanner image">
-            <div class="project-details">
-                <h3>Simple Port Scanner Tool</h3>
-             <p>
-             A port scanner is a tool that checks if certain "doors" (ports) on a
-             server or device are open or closed. Open ports allow communication between devices and
-             services, while closed ports block it. 
-              This tool helps you quickly check whether a specific port or a range of ports is open on a target device.
-            </p>
-
-                <a href="https://github.com/Enock46/_cyber_port_scanner" target="_blank">View on GitHub</a>
-            </div>
-        </div>
-
-        <div class="project">
-            <img src="./images/ipmasking.jpg" alt="Ip masking simulation tool">
-            <div class="project-details">
-                <h3>Ip Masking simulation tool</h3>
-                <p>This IP Masking Tool is a simple web-based application designed to simulate IP masking using a proxy.
-                     The tool allows users to submit a URL along with proxy IP and port details to mask their IP address. 
-                     This project provides a user-friendly interface with a responsive design, 
-                    making it suitable for both beginners and cybersecurity enthusiasts.</p>
-                <a href="https://github.com/Enock46/ip-masking-simulation-tool" target="_blank">View on GitHub</a>
-            </div>
-        </div>
-
-
-        <div class="project">
-            <img src="./images/brute_force.jpg" alt="SSH Brute Force Detection Tool">
-            <div class="project-details">
-                <h3>SSH Brute Force Detection Tool</h3>
-                <p>TThis web-based application is designed to help administrators monitor and 
-                    analyze log files for potential SSH brute-force attacks.
-                     It allows users to input log file paths and check for suspicious login attempts from specific IP addresses.</p>
-                <a href="https://github.com/Enock46/simple-SSH-brute-force-detection-tool" target="_blank">View on GitHub</a>
-            </div>
-        </div>
-
     </section>
 
+    <!-- Modal for Project Details -->
+    <div id="project-1" class="fixed inset-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded-lg max-w-lg">
+            <h2 class="text-2xl font-bold">Password Strength & Common Checker Tool</h2>
+            <p class="mt-4">Detailed description of the project...</p>
+            <a href="https://github.com/Enock46/Password-Strength-and-Common-Checker" class="text-green-600 hover:underline">View on GitHub</a>
+            <button onclick="closeModal('project-1')" class="mt-4 bg-red-600 text-white py-2 px-4 rounded">Close</button>
+        </div>
+    </div>
+    <!-- Repeat for other modals -->
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+    </script>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 text-center">
+        <h2 class="text-3xl font-semibold text-green-600 mb-6">Skills</h2>
+        <div class="max-w-screen-md mx-auto">
+            <div class="mb-6">
+                <p class="text-lg mb-2">Mobile App Development</p>
+                <div class="w-full bg-gray-200 rounded-full">
+                    <div class="bg-green-600 text-xs font-medium text-blue-100 text-center p-1 leading-none" style="width: 80%">80%</div>
+                </div>
+            </div>
+            <div class="mb-6">
+                <p class="text-lg mb-2">AI & Machine Learning</p>
+                <div class="w-full bg-gray-200 rounded-full">
+                    <div class="bg-green-600 text-xs font-medium text-blue-100 text-center p-1 leading-none" style="width: 70%">70%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-gray-100 py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-semibold text-green-600 mb-10">Contact Me</h2>
+            <form action="#" method="POST" class="max-w-xl mx-auto">
+                <input type="text" name="name" class="w-full p-3 mb-4 border border-gray-300 rounded" placeholder="Your Name" required>
+                <input type="email" name="email" class="w-full p-3 mb-4 border border-gray-300 rounded" placeholder="Your Email" required>
+                <textarea name="message" class="w-full p-3 mb-4 border border-gray-300 rounded" placeholder="Your Message" required></textarea>
+                <button type="submit" class="w-full bg-green-600 text-white p-3 rounded hover:bg-green-700">Send Message</button>
+            </form>
+        </div>
+    </section>
 
     <!-- Footer Section -->
-<footer>
-    <p>&copy; 2025 enovo. All rights reserved.</p>
+    <footer class="bg-green-600 text-white py-6">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 Enovo. All rights reserved.</p>
+            <p>Contact me at <a href="mailto:enockluhimbo@gmail.com" class="text-white hover:underline">enockluhimbo@gmail.com</a></p>
+            <div class="mt-4">
+                <a href="https://twitter.com" target="_blank" class="text-white mx-2 hover:underline">Twitter</a>
+                <a href="https://linkedin.com" target="_blank" class="text-white mx-2 hover:underline">LinkedIn</a>
+                <a href="https://github.com" target="_blank" class="text-white mx-2 hover:underline">GitHub</a>
+            </div>
+        </div>
+    </footer>
 
-    <p>
-        <p>Contact me at <a href="mailto:enockluhimbo@gmail.com">enockluhimbo@gmail.com</a></p>
-        Follow us on:
-        <a href="https://twitter.com" target="_blank">Twitter</a> |
-        <a href="https://linkedin.com" target="_blank">LinkedIn</a> |
-        <a href="https://github.com/Enock46" target="_blank">GitHub</a>
-    </p>
-</footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
