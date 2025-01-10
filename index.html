@@ -27,7 +27,7 @@
         <div class="container mx-auto text-center">
             <h1 class="text-4xl font-bold mb-6">Welcome to My Portfolio</h1>
             <div class="flex justify-center items-center mb-6">
-                <img src="./images/my_image.jpg" alt="Your Photo" class="w-40 h-40 rounded-full border-4 border-green-400 shadow-lg">
+                <img src="/images/my_image.jpg" alt="Your Photo" class="w-40 h-40 rounded-full border-4 border-green-400 shadow-lg">
             </div>
             <div>
                 <h3 class="text-2xl font-semibold">Enock Luhimbo</h3>
@@ -87,7 +87,7 @@
 
                  <!-- Project 5 -->
                  <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-300">
-                    <img src="./images/encrypt.jpg" alt="SSH Brute Force Detection Tool" class="w-full h-48 object-cover" loading="lazy">
+                    <img src="/images/encrypt.jpg" alt="SSH Brute Force Detection Tool" class="w-full h-48 object-cover" loading="lazy">
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-green-600 mb-2">Simple Data Encryption and Decryption Tool</h3>
                         <p class="text-gray-600 mb-4">A web application that helps to encrypt and decrypt message with public key</p>
@@ -175,35 +175,29 @@
         }
     </script>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 text-center">
-        <h2 class="text-3xl font-semibold text-green-600 mb-6">Skills</h2>
-        <div class="max-w-screen-md mx-auto">
-            <div class="mb-6">
-                <p class="text-lg mb-2">Mobile App Development</p>
-                <div class="w-full bg-gray-200 rounded-full">
-                    <div class="bg-green-600 text-xs font-medium text-blue-100 text-center p-1 leading-none" style="width: 80%">80%</div>
-                </div>
-            </div>
-            <div class="mb-6">
-                <p class="text-lg mb-2">AI & Machine Learning</p>
-                <div class="w-full bg-gray-200 rounded-full">
-                    <div class="bg-green-600 text-xs font-medium text-blue-100 text-center p-1 leading-none" style="width: 70%">70%</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Skills Section -->
+<section id="skills" class="text-center py-16 bg-gray-100">
+    <h2 class="text-3xl font-semibold text-green-600 mb-10">Skills</h2>
+    <div class="flex justify-center gap-16">
+        <div class="w-32 h-32 bg-green-600 rounded-full flex items-center justify-center text-white">Kotlin</div>
+        <div class="w-32 h-32 bg-green-600 rounded-full flex items-center justify-center text-white">AI</div>
+        <div class="w-32 h-32 bg-green-600 rounded-full flex items-center justify-center text-white">Cybersecurity</div>
+    </div>
+</section>
 
     <!-- Contact Section -->
     <section id="contact" class="bg-gray-100 py-16">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-semibold text-green-600 mb-10">Contact Me</h2>
-            <form action="#" method="POST" class="max-w-xl mx-auto">
+            <form id="contact-form" class="max-w-xl mx-auto">
                 <input type="text" name="name" class="w-full p-3 mb-4 border border-gray-300 rounded" placeholder="Your Name" required>
                 <input type="email" name="email" class="w-full p-3 mb-4 border border-gray-300 rounded" placeholder="Your Email" required>
                 <textarea name="message" class="w-full p-3 mb-4 border border-gray-300 rounded" placeholder="Your Message" required></textarea>
                 <button type="submit" class="w-full bg-green-600 text-white p-3 rounded hover:bg-green-700">Send Message</button>
             </form>
+            
+            <!-- Success Message -->
+            <p id="success-message" class="text-green-600 mt-4 hidden">Your message has been sent successfully!</p>
         </div>
     </section>
 
@@ -224,5 +218,57 @@
     <script>
         AOS.init();
     </script>
+
+
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    // Initialize EmailJS
+    emailjs.init("Enock");  // Replace with your EmailJS User ID
+
+    // Handle form submission
+    // document.getElementById("contact-form").addEventListener("submit", function(event) {
+    //     event.preventDefault();  // Prevent the default form submission
+
+        const formData = new FormData(this);
+
+    //     // Send email using EmailJS
+    //     emailjs.sendForm("service_e1zjncj", "template_iq826tl", formData)
+    //         .then(function(response) {
+    //             console.log("Success:", response);
+    //             // Show success message
+    //             document.getElementById("success-message").classList.remove("hidden");
+    //             // Optionally clear form fields
+    //             document.getElementById("contact-form").reset();
+    //         }, function(error) {
+    //             console.error("Error:", error);
+    //         });
+
+                // Handle form submission
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Get form data
+        const formData = {
+            name: document.querySelector("[name='name']").value,
+            email: document.querySelector("[name='email']").value,
+            message: document.querySelector("[name='message']").value,
+        };
+
+        // Send form data using EmailJS
+        emailjs.send("service_e1zjncj", "template_iq826tl", formData)
+            .then(function(response) {
+                // Display success message
+                document.getElementById("success-message").classList.remove("hidden");
+                document.getElementById("contact-form").reset(); // Reset the form
+            }, function(error) {
+                alert("Sorry, something went wrong. Please try again later.");
+            });
+    });
+</script>
+
+    });
+</script>
+
+
 </body>
 </html>
